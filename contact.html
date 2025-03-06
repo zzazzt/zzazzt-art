@@ -1,28 +1,121 @@
-<div class="body-container">
-<div class="thumbnail-container">
-         <!-- 80 -->
-    <div class="thumbnail">
-        <img src="mat/3/3sm090a.webp" data-large="mat/3/3sm090d.webp" width="130" height="130" loading="lazy">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - NAME</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-container {
+            max-width: 600px;
+            margin: 80px auto 50px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .sns-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .sns-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .sns-links a:hover {
+            background: #bbb;
+        }
+        .contact-email {
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+            background: #f8f8f8;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .contact-email:hover {
+            background: #e0e0e0;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .contact-form button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contact-container">
+    <img src="mat/1/1sm001b.webp" alt="プロフィール画像" class="profile-pic">
+    <div class="name">ZZAZZT　ザット</div>
+    <div class="description">フリーランスイラストレーター<br>
+        背景付きのイラストを描けます。厚塗り系。<p>
+        イラスト制作のご依頼はご予算・納期等と共に<br>
+        以下メールまたはフォームまでお気軽にお送りください。</div>
+
+    <!-- SNSリンク -->
+    <div class="sns-links">
+        <a href="https://x.com/yokihihe" target="_blank"><img src="mat/logo-black.png" alt="Twitter" width="24"></a>
     </div>
-    <div class="thumbnail">
-        <img src="mat/3/3sm091a.webp" data-large="mat/3/3sm091d.webp" width="130" height="130" loading="lazy">
-    </div>
-    <div class="thumbnail">
-        <img src="mat/3/3sm092a.webp" data-large="mat/3/3sm092d.webp" width="130" height="130" loading="lazy">
-    </div>
-    <div class="thumbnail">
-        <img src="mat/3/3sm093a.webp" data-large="mat/3/3sm093d.webp" width="130" height="130" loading="lazy">
-    </div>
-    <div class="thumbnail">
-        <img src="mat/3/3sm094a.webp" data-large="mat/3/3sm094d.webp" width="130" height="130" loading="lazy">
-    </div>
-    <div class="thumbnail">
-        <img src="mat/3/3sm095a.webp" data-large="mat/3/3sm095d.webp" width="130" height="130" loading="lazy">
-    </div>
-    <div class="thumbnail">
-        <img src="mat/3/3sm096a.webp" data-large="mat/3/3sm096d.webp" width="130" height="130" loading="lazy">
-    </div>
-    <div class="thumbnail">
-        <img src="mat/3/3sm097a.webp" data-large="mat/3/3sm097d.webp" width="130" height="130" loading="lazy">
-    </div>
-</div></div>
+
+    <!-- メールアドレス -->
+    <a href="mailto:gohugami@gmail.com" class="contact-email">📩 gohugami@gmail.com</a>
+
+    <!-- 問い合わせフォーム -->
+    <form class="contact-form">
+        <input type="text" name="name" placeholder="お名前 (Name)" required>
+        <input type="email" name="email" placeholder="メールアドレス (Email)" required>
+        <textarea name="message" rows="4" placeholder="お問い合わせ内容 (Message)" required></textarea>
+        <button type="submit">送信する</button>
+    </form>
+</div>
+
+</body>
+</html>
