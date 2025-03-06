@@ -220,12 +220,20 @@
             });
         }
 
-        function updateActiveMenu(activeLink) {
-            document.querySelectorAll(".menu-link").forEach(link => link.classList.remove("active"));
-            activeLink.classList.add("active");
+        document.addEventListener("DOMContentLoaded", function () {
+    // モバイル端末（スマホ・タブレット）でアクセスしたかチェック
+    if (window.innerWidth <= 768) {
+        // すでにリダイレクト済みか確認
+        if (!sessionStorage.getItem("redirected")) {
+            sessionStorage.setItem("redirected", "true"); // フラグをセット
+            if (!window.location.href.includes("mobile.html")) {
+                window.location.href = "mobile.html"; // モバイル版にリダイレクト
+            }
         }
-        document.getElementById("hamburger").addEventListener("click", function () {
-    document.getElementById("menu").classList.toggle("active");
+    } else {
+        // PC版ではフラグをリセット（次回モバイルアクセス時に再リダイレクト可能にする）
+        sessionStorage.removeItem("redirected");
+    }
 });
 
 </script>
