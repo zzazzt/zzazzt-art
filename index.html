@@ -1,0 +1,213 @@
+@ -0,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZZAZZT ART ザットアート展示どころ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ページネーションの中央寄せ */
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 0 5px;
+            text-decoration: none;
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: #333;
+            color: #fff;
+            pointer-events: none;
+        }
+        .hidden {
+            display: none !important;
+        }
+        /* 🔍 オーバーレイのスタイル */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+        .left-arrow {
+            left: 20px;
+        }
+        .right-arrow {
+            right: 20px;
+        }
+        .hidden-arrow {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header class="header">
+        <img src="mat/zzazztart_title.png" alt="タイトル画像" class="title-image">
+        <div class="flex-space"></div>
+        <nav class="menu">
+            <a href="#" class="menu-link active" data-page="page1.html">Original<br>オリジナル</a>
+            <a href="#" class="menu-link disabled">Fan art<br>ファンアート</a>
+            <span class="menu-divider">ー</span>
+            <a href="#" class="menu-link" data-page="page2.html">Jujutsu<br>呪術廻戦</a>
+            <span class="menu-divider">ー</span>
+            <a href="#" class="menu-link" data-page="page3.html">Twst<br>ツイステ</a>
+            <a href="#" class="menu-link" data-page="contact.html">Contact<br>連絡先</a>
+        </nav>
+    </header>
+
+    <!-- 🔵 ページネーション（上部、最初は非表示） -->
+    <div id="paginationTop" class="pagination hidden">
+        <a href="#" class="page-link active" data-page="page3.html">1</a>
+        <a href="#" class="page-link" data-page="page3b.html">2</a>
+        <a href="#" class="page-link" data-page="page3c.html">3</a>
+        <a href="#" class="page-link" data-page="page3d.html">4</a>
+    </div>
+
+    <!-- ボディ部分 -->
+    <div class="body-container">
+        <!-- ここにページのコンテンツが入る -->
+    </div>
+
+    <!-- 🔍 拡大表示用のオーバーレイ -->
+    <div id="overlay" class="overlay">
+        <span id="prevArrow" class="arrow left-arrow">&#9664;</span>
+        <img id="overlayImage" src="" alt="拡大画像">
+        <span id="nextArrow" class="arrow right-arrow">&#9654;</span>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        let thumbnails = [];
+
+        document.addEventListener("DOMContentLoaded", function () {
+            loadPage("page1.html"); // 初期ページをロード
+            setupMenuClickEvents();
+        });
+
+        function loadPage(page) {
+            const bodyContainer = document.querySelector(".body-container");
+
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    const tempDiv = document.createElement("div");
+                    tempDiv.innerHTML = data;
+                    const newContent = tempDiv.querySelector(".body-container");
+
+                    if (newContent) {
+                        bodyContainer.innerHTML = newContent.innerHTML;
+                        setTimeout(setupThumbnailClickEvents, 100);
+                    } else {
+                        console.error("⚠️ `.body-container` が見つからないのでページ全体を適用");
+                        bodyContainer.innerHTML = tempDiv.innerHTML;
+                    }
+                })
+                .catch(error => console.error("エラー:", error));
+        }
+
+        function setupMenuClickEvents() {
+            const menuLinks = document.querySelectorAll(".menu-link");
+            menuLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const page = this.getAttribute("data-page");
+
+                    if (!page) return;
+
+                    loadPage(page);
+                    updateActiveMenu(this);
+                });
+            });
+        }
+
+        function setupThumbnailClickEvents() {
+            thumbnails = Array.from(document.querySelectorAll(".thumbnail img"));
+            const overlay = document.getElementById("overlay");
+            const overlayImage = document.getElementById("overlayImage");
+            const prevArrow = document.getElementById("prevArrow");
+            const nextArrow = document.getElementById("nextArrow");
+
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener("click", function () {
+                    currentIndex = index;
+                    showImage();
+                });
+            });
+
+            prevArrow.addEventListener("click", function () {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    showImage();
+                }
+            });
+
+            nextArrow.addEventListener("click", function () {
+                if (currentIndex < thumbnails.length - 1) {
+                    currentIndex++;
+                    showImage();
+                }
+            });
+
+            overlay.addEventListener("click", function (event) {
+                if (!event.target.classList.contains("arrow")) {
+                    overlay.style.display = "none";
+                    overlayImage.src = "";
+                }
+            });
+
+            function showImage() {
+                const largeImageUrl = thumbnails[currentIndex].getAttribute("data-large");
+                overlayImage.src = largeImageUrl;
+                overlay.style.display = "flex";
+
+                // 🔵 矢印の表示・非表示を更新
+                prevArrow.classList.toggle("hidden-arrow", currentIndex === 0);
+                nextArrow.classList.toggle("hidden-arrow", currentIndex === thumbnails.length - 1);
+            }
+        }
+
+        function updateActiveMenu(activeLink) {
+            document.querySelectorAll(".menu-link").forEach(link => {
+                link.classList.remove("active");
+                link.style.pointerEvents = "auto";
+            });
+
+            activeLink.classList.add("active");
+            activeLink.style.pointerEvents = "none";
+        }
+    </script>
+
+</body>
+</html>
