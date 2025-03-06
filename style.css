@@ -1,77 +1,33 @@
-/* ヘッダー全体 */
+/* 🔵 ヘッダー全体 */
 .header {
     width: 100%;
     height: 70px;
     background-color: #444444;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* ロゴとメニューを分ける */
     padding: 0 20px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
 }
-.hamburger {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    user-select: none;
-    padding: 10px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-}
 
-.menu {
-    display: flex;
-    gap: 15px;
-}
-
-/* モバイル用のスタイル */
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 10px;
-    }
-
-    .menu a {
-        display: block;
-        color: white;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .menu.active {
-        display: flex;
-    }
-}
-
-/* ロゴ画像 */
+/* 🔵 ロゴ画像 */
 .title-image {
-    width: 100px;
+    width: auto;
     height: 70px;
     object-fit: contain;
 }
 
-/* メニュー全体 */
+/* 🔵 PC用メニュー (デフォルト表示) */
 .menu {
-    display: flex;
-    align-items: center;
+    display: flex; /* PCでは横並び */
+    gap: 15px;
     margin-left: auto; /* 右寄せ */
-    padding-right: 20px;
 }
 
-/* メニューリンク */
+/* 🔵 メニューリンク */
 .menu a {
     display: flex;
     align-items: center;
@@ -105,123 +61,51 @@
     background-color: transparent !important;
 }
 
-/* ここからボディ */
-body {
-    background-color: black;
-    padding-top: 110px; /* ヘッダーの高さ分のスペース */
-}
-
-/* 🔵 ページネーション（上部） */
-#paginationTop {
-    position: fixed;
-    top: 80px; /* ヘッダーのすぐ下に配置 */
-    left: 50%;
-    transform: translateX(-50%); /* 中央配置 */
-    z-index: 1100; /* ヘッダーより前面に表示 */
-    background-color: rgba(0, 0, 0, 0.8); /* 背景を半透明に */
-    padding: 10px;
-    border-radius: 10px;
-}
-
-/* iframeのスタイル */
-#content-frame {
-    width: 100%;
-    height: calc(100vh - 10px); /* ヘッダー分を引いて高さ調整 */
-    border: none;
-    background-color: black;
-}
-
-/* サムネイル一覧のコンテナ */
-.thumbnail-container {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 40px 0px; /* ヘッダーと重ならないように調整 */
-    max-width: 100%;
-    margin: 0 auto;
-    background-color: black;
-    overflow-x: hidden;
-}
-
-/* サムネイル画像 */
-.thumbnail {
-    width: 130px;
-    height: 130px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #333;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.hidden {
-    display: none;
-}
-
-/* サムネイル内の画像 */
-.thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.2s ease-in-out;
-}
-
-/* ホバー時に少し拡大 */
-.thumbnail img:hover {
-    transform: scale(1.1);
-}
-
-/* 🔵 オーバーレイ（クリックで開く背景） */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-    z-index: 10000; /* すべての要素より前面に表示 */
-}
-
-/* オーバーレイ内の拡大画像 */
-.overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-/* 矢印ボタンのスタイル */
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: white;
+/* 🔵 ハンバーガーメニュー (モバイル時のみ表示) */
+.hamburger {
+    display: none; /* PCでは非表示 */
+    font-size: 30px;
     cursor: pointer;
     user-select: none;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 5px;
-}
-
-/* 左矢印の位置 */
-.left-arrow {
-    left: 20px;
-}
-
-/* 右矢印の位置 */
-.right-arrow {
+    position: absolute;
     right: 20px;
+    top: 20px;
+    z-index: 2000;
 }
 
-/* 矢印のホバー時 */
-.arrow:hover {
-    background-color: rgba(0, 0, 0, 0.955);
+/* 🔵 モバイル時のメニュー表示 */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* 最初は非表示 */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .menu a {
+        display: block;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block; /* モバイル時のみ表示 */
+    }
+}
+
+/* 🔵 ボディ */
+body {
+    background-color: black;
+    padding-top: 110px; /* ヘッダーの高さ分のスペース */
 }
