@@ -115,15 +115,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     // モバイル端末（スマホ・タブレット）でアクセスしたかチェック
     if (window.innerWidth <= 768) {
-        // すでにリダイレクト済みか確認
-        if (!sessionStorage.getItem("redirected")) {
+        // すでにリダイレクト済みでない & 今のページが mobile.html でないならリダイレクト
+        if (!sessionStorage.getItem("redirected") && !window.location.pathname.includes("mobile.html")) {
             sessionStorage.setItem("redirected", "true"); // フラグをセット
-            if (!window.location.href.includes("mobile.html")) {
-                window.location.href = "mobile.html"; // モバイル版にリダイレクト
-            }
+            window.location.href = "mobile.html"; // モバイル版にリダイレクト
         }
     } else {
-        // PC版ではフラグをリセット（次回モバイルアクセス時に再リダイレクト可能にする）
+        // PCに戻ったらフラグをリセット
         sessionStorage.removeItem("redirected");
     }
 });
