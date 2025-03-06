@@ -11,6 +11,50 @@
     left: 0;
     z-index: 1000;
 }
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+/* モバイル用のスタイル */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 10px;
+    }
+
+    .menu a {
+        display: block;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
 
 /* ロゴ画像 */
 .title-image {

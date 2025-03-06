@@ -81,10 +81,11 @@
     <!-- ✅ ヘッダーを復元 -->
     <header class="header">
         <img src="mat/zzazztart_title.png" alt="タイトル画像" class="title-image">
-        <nav class="menu">
+        <div class="hamburger" id="hamburger">&#9776;</div> <!-- ハンバーガーアイコン -->
+        <nav class="menu" id="menu">
             <a href="#" class="menu-link active" data-page="page1.html">Original<br>オリジナル</a>
-            <a href="#" class="menu-link disabled">Fan art<br>ファンアート</a>ー
-            <a href="#" class="menu-link" data-page="page2.html">Jujutsu<br>呪術廻戦</a>ー
+            <a href="#" class="menu-link disabled">Fan art<br>ファンアート</a>
+            <a href="#" class="menu-link" data-page="page2.html">Jujutsu<br>呪術廻戦</a>
             <a href="#" class="menu-link" data-page="page3.html">Twst<br>ツイステ</a>
             <a href="#" class="menu-link" data-page="contact.html">Contact<br>連絡先</a>
         </nav>
@@ -223,7 +224,11 @@
             document.querySelectorAll(".menu-link").forEach(link => link.classList.remove("active"));
             activeLink.classList.add("active");
         }
-    </script>
+        document.getElementById("hamburger").addEventListener("click", function () {
+    document.getElementById("menu").classList.toggle("active");
+});
+
+</script>
 
 </body>
 </html>
