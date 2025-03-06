@@ -6,10 +6,17 @@
     <title>ZZAZZT ART ザットアート展示どころ</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ページネーションの中央寄せ */
+        /* 🔵 ページネーションのスタイル */
         .pagination {
-            text-align: center;
-            margin: 20px 0;
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 1100;
+            display: none;
         }
         .pagination a {
             display: inline-block;
@@ -71,35 +78,33 @@
 </head>
 <body>
 
-    <!-- ヘッダー -->
+    <!-- ✅ ヘッダーを復元 -->
     <header class="header">
         <img src="mat/zzazztart_title.png" alt="タイトル画像" class="title-image">
-        <div class="flex-space"></div>
         <nav class="menu">
             <a href="#" class="menu-link active" data-page="page1.html">Original<br>オリジナル</a>
-            <a href="#" class="menu-link disabled">Fan art<br>ファンアート</a>
-            <span class="menu-divider">ー</span>
-            <a href="#" class="menu-link" data-page="page2.html">Jujutsu<br>呪術廻戦</a>
-            <span class="menu-divider">ー</span>
+            <a href="#" class="menu-link disabled">Fan art<br>ファンアート</a>ー
+            <a href="#" class="menu-link" data-page="page2.html">Jujutsu<br>呪術廻戦</a>ー
             <a href="#" class="menu-link" data-page="page3.html">Twst<br>ツイステ</a>
             <a href="#" class="menu-link" data-page="contact.html">Contact<br>連絡先</a>
         </nav>
     </header>
 
-    <!-- 🔵 ページネーション（上部、最初は非表示） -->
-    <div id="paginationTop" class="pagination hidden">
+    <!-- ✅ ページネーション -->
+    <div id="paginationJujutsu" class="pagination">
+        <a href="#" class="page-link active" data-page="page2.html">1</a>
+        <a href="#" class="page-link" data-page="page2b.html">2</a>
+    </div>
+    <div id="paginationTwst" class="pagination">
         <a href="#" class="page-link active" data-page="page3.html">1</a>
         <a href="#" class="page-link" data-page="page3b.html">2</a>
         <a href="#" class="page-link" data-page="page3c.html">3</a>
-        <a href="#" class="page-link" data-page="page3d.html">4</a>
     </div>
 
-    <!-- ボディ部分 -->
-    <div class="body-container">
-        <!-- ここにページのコンテンツが入る -->
-    </div>
+    <!-- ✅ ボディ部分 -->
+    <div class="body-container"></div>
 
-    <!-- 🔍 拡大表示用のオーバーレイ -->
+    <!-- ✅ オーバーレイの復元 -->
     <div id="overlay" class="overlay">
         <span id="prevArrow" class="arrow left-arrow">&#9664;</span>
         <img id="overlayImage" src="" alt="拡大画像">
@@ -107,12 +112,10 @@
     </div>
 
     <script>
-        let currentIndex = 0;
-        let thumbnails = [];
-
         document.addEventListener("DOMContentLoaded", function () {
-            loadPage("page1.html"); // 初期ページをロード
+            loadPage("page1.html");
             setupMenuClickEvents();
+            setupPaginationClickEvents();
         });
 
         function loadPage(page) {
@@ -121,42 +124,45 @@
             fetch(page)
                 .then(response => response.text())
                 .then(data => {
-                    const tempDiv = document.createElement("div");
-                    tempDiv.innerHTML = data;
-                    const newContent = tempDiv.querySelector(".body-container");
-
-                    if (newContent) {
-                        bodyContainer.innerHTML = newContent.innerHTML;
-                        setTimeout(setupThumbnailClickEvents, 100);
-                    } else {
-                        console.error("⚠️ `.body-container` が見つからないのでページ全体を適用");
-                        bodyContainer.innerHTML = tempDiv.innerHTML;
-                    }
+                    bodyContainer.innerHTML = data;
+                    setTimeout(() => {
+                        setupThumbnailClickEvents(); 
+                        updatePaginationDisplay(page);
+                        updatePagination(page);
+                    }, 100);
                 })
                 .catch(error => console.error("エラー:", error));
         }
 
         function setupMenuClickEvents() {
-            const menuLinks = document.querySelectorAll(".menu-link");
-            menuLinks.forEach(link => {
+            document.querySelectorAll(".menu-link").forEach(link => {
                 link.addEventListener("click", function (event) {
                     event.preventDefault();
-                    const page = this.getAttribute("data-page");
-
-                    if (!page) return;
-
-                    loadPage(page);
+                    loadPage(this.getAttribute("data-page"));
                     updateActiveMenu(this);
                 });
             });
         }
 
+        function setupPaginationClickEvents() {
+            document.querySelectorAll(".pagination a").forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    loadPage(this.getAttribute("data-page"));
+                    updatePagination(this);
+                });
+            });
+        }
+
         function setupThumbnailClickEvents() {
-            thumbnails = Array.from(document.querySelectorAll(".thumbnail img"));
+            const thumbnails = document.querySelectorAll(".thumbnail img");
             const overlay = document.getElementById("overlay");
             const overlayImage = document.getElementById("overlayImage");
             const prevArrow = document.getElementById("prevArrow");
             const nextArrow = document.getElementById("nextArrow");
+
+            let currentIndex = 0;
+            let imageList = Array.from(thumbnails);
 
             thumbnails.forEach((thumbnail, index) => {
                 thumbnail.addEventListener("click", function () {
@@ -165,19 +171,19 @@
                 });
             });
 
-            prevArrow.addEventListener("click", function () {
+            prevArrow.onclick = function () {
                 if (currentIndex > 0) {
                     currentIndex--;
                     showImage();
                 }
-            });
+            };
 
-            nextArrow.addEventListener("click", function () {
-                if (currentIndex < thumbnails.length - 1) {
+            nextArrow.onclick = function () {
+                if (currentIndex < imageList.length - 1) {
                     currentIndex++;
                     showImage();
                 }
-            });
+            };
 
             overlay.addEventListener("click", function (event) {
                 if (!event.target.classList.contains("arrow")) {
@@ -187,24 +193,30 @@
             });
 
             function showImage() {
-                const largeImageUrl = thumbnails[currentIndex].getAttribute("data-large");
-                overlayImage.src = largeImageUrl;
+                overlayImage.src = imageList[currentIndex].getAttribute("data-large");
                 overlay.style.display = "flex";
-
-                // 🔵 矢印の表示・非表示を更新
                 prevArrow.classList.toggle("hidden-arrow", currentIndex === 0);
-                nextArrow.classList.toggle("hidden-arrow", currentIndex === thumbnails.length - 1);
+                nextArrow.classList.toggle("hidden-arrow", currentIndex === imageList.length - 1);
             }
         }
 
-        function updateActiveMenu(activeLink) {
-            document.querySelectorAll(".menu-link").forEach(link => {
-                link.classList.remove("active");
-                link.style.pointerEvents = "auto";
-            });
+        function updatePaginationDisplay(page) {
+            document.getElementById("paginationJujutsu").style.display = page.startsWith("page2") ? "block" : "none";
+            document.getElementById("paginationTwst").style.display = page.startsWith("page3") ? "block" : "none";
+        }
 
+        function updatePagination(page) {
+            document.querySelectorAll(".pagination a").forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("data-page") === page) {
+                    link.classList.add("active");
+                }
+            });
+        }
+
+        function updateActiveMenu(activeLink) {
+            document.querySelectorAll(".menu-link").forEach(link => link.classList.remove("active"));
             activeLink.classList.add("active");
-            activeLink.style.pointerEvents = "none";
         }
     </script>
 
