@@ -22,8 +22,32 @@
 /* メニュー */
 .vertical {
     display: grid;
-    gap: 24px;
+    gap: 20px;
     align-content: start;
+    text-align: center;
+    background: #4d4d4d;
+    padding: 50px 0;
+
+    & a {
+        border-radius: 8px;
+        color: #dddddd;
+    &.current{
+        background-color: #6c6c6c;
+    }
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+.vertical a.active {
+    color: #e97e00;
+}
+
+.vertical a.disabled {
+    color: rgb(126, 126, 126);
+    pointer-events: none;
 }
 
 /* リンク */
