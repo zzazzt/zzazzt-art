@@ -181,3 +181,72 @@ body {
 .arrow:hover {
     background-color: rgba(0, 0, 0, 0.955);
 }
+
+    /* 🔵 ページネーションのスタイル */
+    .pagination {
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        border-radius: 10px;
+        z-index: 1100;
+        display: none;
+    }
+    .pagination a {
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 0 5px;
+        text-decoration: none;
+        background-color: #f0f0f0;
+        color: #333;
+        border-radius: 5px;
+    }
+    .pagination a.active {
+        background-color: #333;
+        color: #fff;
+        pointer-events: none;
+    }
+    .hidden {
+        display: none !important;
+    }
+    /* 🔍 オーバーレイのスタイル */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    .overlay img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+    }
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+    }
+    .left-arrow {
+        left: 20px;
+    }
+    .right-arrow {
+        right: 20px;
+    }
+    .hidden-arrow {
+        display: none !important;
+    }
