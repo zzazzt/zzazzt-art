@@ -18,7 +18,13 @@
 
     <!-- ヘッダー -->
     <header class="header">
-        <img src="mat/zzazztart_title.png" alt="タイトル画像" class="title-image">
+        <img src="mat/zzazztart_title.png" alt="タイトル画像" class="title-image">　　
+        <button id="menuButton" type="button" class="menu-button" aria-labelledby="menuButtonLabel"
+        onclick="document.querySelector('.vertical').classList.toggle('is-toggle')">
+            <span class="menu-button__line">
+              <span id="menuButtonLabel" style="display: none">メニューボタン</span>
+            </span>
+          </button>
     </header>
 
     <!-- ページネーション -->
@@ -85,6 +91,22 @@
                 });
             });
         }
+
+        const menuButton = document.getElementById("menuButton");
+let isMenuOpened = false;
+
+function toggleMenu() {
+  isMenuOpened = !isMenuOpened;
+  if (isMenuOpened) {
+    // メニューを開いた時の処理
+    menuButton.classList.add("is-opened");
+  } else {
+    // メニューを閉じた時の処理
+    menuButton.classList.remove("is-opened");
+  }
+}
+
+menuButton.addEventListener("click", toggleMenu);
 
         function setupThumbnailClickEvents() {
             const thumbnails = document.querySelectorAll(".thumbnail img");

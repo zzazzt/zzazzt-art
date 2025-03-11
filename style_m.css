@@ -33,6 +33,13 @@
         color: #dddddd;
     &.current{
         background-color: #6c6c6c;
+    &.is-toggled {
+        grid-template-columns: auto 0px;
+    }
+    > .header {
+        grid-area:header;
+        z-index: 1;
+    }
     }
     }
 }
@@ -43,12 +50,48 @@ ul {
 
 .vertical a.active {
     color: #e97e00;
+    pointer-events: none
 }
 
 .vertical a.disabled {
     color: rgb(126, 126, 126);
     pointer-events: none;
 }
+
+/*メニューボタン*/
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 7px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333333;
+    background-color: #ffffff;
+  }
+  
+  .menu-button__line,
+  .menu-button::before,
+  .menu-button::after {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background-color: #333333;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
+  .menu-button.is-opened .menu-button__line {
+    opacity: 0;
+  }
+  
+  .menu-button.is-opened::before {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-button.is-opened::after {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 
 /* リンク */
 .menu a {
