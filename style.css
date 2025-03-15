@@ -244,7 +244,7 @@ body {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 26px;
+        font-size: 20px;
         color: white;
         cursor: pointer;
         user-select: none;
@@ -253,10 +253,10 @@ body {
         border-radius: 5px;
     }
     .left-arrow {
-        left: 50px;
+        left: 30px;
     }
     .right-arrow {
-        right: 50px;
+        right: 30px;
     }
     .hidden-arrow {
         display: none !important;
