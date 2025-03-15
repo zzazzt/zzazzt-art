@@ -22,18 +22,17 @@
 /* メニュー全体 */
 .menu {
     display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
     font-size: 16px;
+    align-items: center;
 }
 
 @media (width <=768px) {
     .menu {
         display: flex;
         align-items: center;
+        width: calc(50% - px);
         margin-left: auto;
-        margin-right: auto;
+        margin-right: 0px;
         font-size: 16px;
     }
 }
@@ -52,6 +51,7 @@
     white-space: pre-wrap;
     line-height: 1.2;
     font-size: 14px;
+    padding: 8px;
     position: relative;
 }
 
