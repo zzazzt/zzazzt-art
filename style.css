@@ -44,6 +44,15 @@
     position: relative;
 }
 
+@media (width < 1000px) {
+    .menu {
+        float: left;
+        width: calc(100% - 140px);
+        margin-block: 0;
+        margin-left:20px;
+    }
+}
+
 /* ホバー時 */
 .menu a:hover { 
     color: #e97e00; 
