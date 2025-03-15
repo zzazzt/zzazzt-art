@@ -23,8 +23,11 @@
 .menu {
     display: flex;
     align-items: center;
-    margin-left: auto; /* 右寄せ */
-    padding-right: 0px;
+    margin-left: 5;
+    width: calc(100% - 50px);
+    margin-block: 0;
+    margin-left:0px;
+    font-size: 16px;
 }
 
 /* メニューリンク */
@@ -32,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
+    width: 100px;
     height: 50px;
     text-decoration: none;
     color: #dddddd;
@@ -42,16 +45,6 @@
     line-height: 1.2;
     font-size: 14px;
     position: relative;
-}
-
-@media (width < 600px) {
-    .menu {
-        float: left;
-        width: calc(100% - 50px);
-        margin-block: 0;
-        margin-left:0px;
-        font-size: 16px;
-    }
 }
 
 /* ホバー時 */
