@@ -86,7 +86,7 @@ body {
     transform: translateX(-50%); /* 中央配置 */
     z-index: 1100; /* ヘッダーより前面に表示 */
     background-color: rgba(0, 0, 0, 0.8); /* 背景を半透明に */
-    padding: 0px;
+    padding: 10px;
     border-radius: 0px;
 }
 
@@ -207,8 +207,8 @@ body {
     }
     .pagination a {
         display: inline-block;
-        padding: 6px 8px;
-        margin: 0 1px;
+        padding: 10px 10px;
+        margin: 10 10px;
         text-decoration: none;
         background-color: #f0f0f0;
         color: #333;
