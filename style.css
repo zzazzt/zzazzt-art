@@ -215,8 +215,8 @@ body {
         border-radius: 2px;
     }
     .pagination a.active {
-        background-color: #333;
-        color: #fff;
+        background-color: #000000;
+        color: #e97e00;
         pointer-events: none;
     }
     .hidden {
