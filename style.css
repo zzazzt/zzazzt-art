@@ -168,13 +168,13 @@ body {
 .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-20%);
     font-size: 40px;
-    color: white;
+    color: rgb(173, 173, 173);
     cursor: pointer;
     user-select: none;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(70, 70, 70, 0.6);
     border-radius: 5px;
 }
 
@@ -242,10 +242,10 @@ body {
     }
     .arrow {
         position: absolute;
-        top: 50%;
+        top: 75%;
         transform: translateY(-50%);
         font-size: 20px;
-        color: white;
+        color: rgb(137, 137, 137);
         cursor: pointer;
         user-select: none;
         padding: 10px;
