@@ -104,8 +104,8 @@ body {
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 40px 0px; /* ヘッダーと重ならないように調整 */
+    gap: 18px;
+    padding: 20px 0px; /* ヘッダーと重ならないように調整 */
     max-width: 100%;
     margin: 0 auto;
     background-color: black;
@@ -167,15 +167,15 @@ body {
 /* 矢印ボタンのスタイル */
 .arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-20%);
+    top: 10%;
+    transform: translateY(-10%);
     font-size: 40px;
     color: rgb(173, 173, 173);
     cursor: pointer;
     user-select: none;
     padding: 10px;
     background-color: rgba(70, 70, 70, 0.6);
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 /* 左矢印の位置 */
@@ -201,13 +201,13 @@ body {
         transform: translateX(-50%);
         background-color: rgba(0, 0, 0, 0.8);
         padding: 5px;
-        border-radius: 10px;
+        border-radius: 0px;
         z-index: 1100;
         display: none;
     }
     .pagination a {
         display: inline-block;
-        padding: 10px 10px;
+        padding: 5px 10px;
         margin: 10 10px;
         text-decoration: none;
         background-color: #f0f0f0;
