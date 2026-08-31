@@ -75,25 +75,23 @@
 /* ここからボディ */
 body {
     background-color: black;
-    padding-top: 110px; /* ヘッダーの高さ分のスペース */
+    padding-top: 100px; /* ヘッダーの高さ分のスペース */
 }
 
 /* 🔵 ページネーション（上部） */
 #paginationTop {
     position: fixed;
-    top: 30px; /* ヘッダーのすぐ下に配置 */
     left: 50%;
     transform: translateX(-50%); /* 中央配置 */
     z-index: 1100; /* ヘッダーより前面に表示 */
-    background-color: rgba(0, 0, 0, 0.8); /* 背景を半透明に */
-    padding: 10px;
-    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0); /* 背景を半透明に */
+    padding: 80px;
+    border-radius: 100px;
 }
 
 /* iframeのスタイル */
 #content-frame {
     width: 100%;
-    height: calc(100vh - 10px); /* ヘッダー分を引いて高さ調整 */
     border: none;
     background-color: black;
 }
