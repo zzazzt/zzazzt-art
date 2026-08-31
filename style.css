@@ -75,7 +75,7 @@
 /* ここからボディ */
 body {
     background-color: black;
-    padding-top: 100px; /* ヘッダーの高さ分のスペース */
+    padding-top: 150px; /* ヘッダーの高さ分のスペース */
 }
 
 /* 🔵 ページネーション（上部） */
@@ -84,9 +84,9 @@ body {
     left: 50%;
     transform: translateX(-50%); /* 中央配置 */
     z-index: 1100; /* ヘッダーより前面に表示 */
-    background-color: rgba(0, 0, 0, 0); /* 背景を半透明に */
-    padding: 80px;
-    border-radius: 100px;
+    background-color: rgba(0, 0, 0, 0.8); /* 背景を半透明に */
+    padding: 50px;
+    border-radius: 0px;
 }
 
 /* iframeのスタイル */
@@ -103,7 +103,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 18px;
-    padding: 20px 0px; /* ヘッダーと重ならないように調整 */
+    padding: 0px 0px; /* ヘッダーと重ならないように調整 */
     max-width: 100%;
     margin: 0 auto;
     background-color: black;
