@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style_illust_sw.css">
+<title>ザットイラストまとめ</title>
+</head>
+<body>
+    <!-- 左メニュー -->
+<div class="menu">
+    <li>
+        <a href="index.html">
+            <img src="mat/btn_top.png" class="modoru" alt="top">
+        </a>
+        <img src="mat/bn_04b.png" class="jjk" alt="jjk">
+    </li>
+
+    <div class="illust">
+        <img src="mat/4/4sm001a.webp" class="illust-img" onclick="changeImage('mat/4/4sm001d.webp')">
+        <img src="mat/4/4sm002a.webp" class="illust-img" onclick="changeImage('mat/4/4sm002d.webp')">
+        <img src="mat/4/4sm003a.webp" class="illust-img" onclick="changeImage('mat/4/4sm003d.webp')">
+        <img src="mat/4/4sm004a.webp" class="illust-img" onclick="changeImage('mat/4/4sm004d.webp')">
+        <img src="mat/4/4sm005a.webp" class="illust-img" onclick="changeImage('mat/4/4sm005d.webp')">
+        <img src="mat/4/4sm006a.webp" class="illust-img" onclick="changeImage('mat/4/4sm006d.webp')">
+        <img src="mat/4/4sm007a.webp" class="illust-img" onclick="changeImage('mat/4/4sm007d.webp')">
+        <img src="mat/4/4sm008a.webp" class="illust-img" onclick="changeImage('mat/4/4sm008d.webp')">
+        <img src="mat/4/4sm009a.webp" class="illust-img" onclick="changeImage('mat/4/4sm009d.webp')">
+    </div>
+</div>
+    <!-- 右TOP -->
+    <div class="main">
+
+        <!-- 中央うねうねデザイン -->
+        <div class="frame">
+            <div class="border">
+                <img src="mat/bg_flame.png" alt="border">
+            </div>
+
+            <div class="border2">
+                <img src="mat/bg_flame2.png" alt="border">
+            </div>
+        </div>
+
+
+        <!-- トップページ -->
+        <div class="top-content">
+      <img id="mainImage" src="mat/4/4sm006d.webp" alt="イラスト表示">
+        </div>
+
+    </div>
+
+    <script>
+function changeImage(image) {
+    document.getElementById("mainImage").src = image;
+}
+</script>
+</body>
+</html>

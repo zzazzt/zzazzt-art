@@ -1,262 +1,99 @@
-/* ヘッダー全体 */
-.header {
-    width: 100%;
-    height: 80px;
-    background-color: #444444;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-/* ロゴ画像 */
-.title-image {
-    width: 130px;
-    height: 60px;
-    object-fit: contain;
-}
-
-/* メニュー全体 */
-.menu {
-    display: flex;
-    font-size: 16px;
-    align-items: center;
-}
-
-@media (width <=768px) {
-    .menu {
-        display: flex;
-        align-items: center;
-        width: calc(50% - px);
-        margin-left: auto;
-        margin-right: 0px;
-        font-size: 16px;
-    }
-}
-
-/* メニューリンク */
-.menu a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 50px;
-    text-decoration: none;
-    color: #dddddd;
-    background-color: transparent;
-    text-align: center;
-    white-space: pre-wrap;
-    line-height: 1.2;
-    font-size: 14px;
-    padding: 8px;
-    position: relative;
-}
-
-/* ホバー時 */
-.menu a:hover { 
-    color: #e97e00; 
-}
-
-/* アクティブなリンク */
-.menu a.active {
-    color: #e97e00;
-}
-
-/* 無効化されたリンク（クリック不可） */
-.menu a.disabled {
-    color: black !important;
-    pointer-events: none;
-    background-color: transparent !important;
-}
-
-/* ここからボディ */
 body {
-    background-color: black;
-    padding-top: 150px; /* ヘッダーの高さ分のスペース */
-}
-
-/* 🔵 ページネーション（上部） */
-#paginationTop {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%); /* 中央配置 */
-    z-index: 1100; /* ヘッダーより前面に表示 */
-    background-color: rgba(0, 0, 0, 0.8); /* 背景を半透明に */
-    padding: 50px;
-    border-radius: 0px;
-}
-
-/* iframeのスタイル */
-#content-frame {
-    width: 100%;
-    border: none;
-    background-color: black;
-}
-
-/* サムネイル一覧のコンテナ */
-.thumbnail-container {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
     display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 18px;
-    padding: 0px 0px; /* ヘッダーと重ならないように調整 */
-    max-width: 100%;
-    margin: 0 auto;
-    background-color: black;
-    overflow-x: hidden;
 }
 
-/* サムネイル画像 */
-.thumbnail {
-    width: 130px;
-    height: 130px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #333;
-    border-radius: 5px;
-    overflow: hidden;
+/* サイドメニュー */
+.menu {
+    background-color: #4d4d4d;
+    width: 260px;
+    height: 100vh;
+    flex-shrink: 0;
 }
 
-.hidden {
-    display: none;
-}
-
-/* サムネイル内の画像 */
-.thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.2s ease-in-out;
-}
-
-/* ホバー時に少し拡大 */
-.thumbnail img:hover {
-    transform: scale(1.1);
-}
-
-/* 🔵 オーバーレイ（クリックで開く背景） */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-    z-index: 10000; /* すべての要素より前面に表示 */
-}
-
-/* オーバーレイ内の拡大画像 */
-.overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-/* 矢印ボタンのスタイル */
-.arrow {
-    position: absolute;
-    top: 10%;
-    transform: translateY(-10%);
-    font-size: 40px;
-    color: rgb(173, 173, 173);
-    cursor: pointer;
-    user-select: none;
+li {
+    list-style: none;
     padding: 10px;
-    background-color: rgba(70, 70, 70, 0.6);
-    border-radius: 3px;
 }
 
-/* 左矢印の位置 */
-.left-arrow {
-    left: 20px;
+/* jjkバナー */
+.jjk {
+    margin: 10px 10px;
+    display: block;
+    margin-bottom: -20px;
 }
 
-/* 右矢印の位置 */
-.right-arrow {
-    right: 20px;
+/* バナー */
+.banner {
+    margin: 0px 10px;
+    display: block;
+    width: 220px;
+    height: 80px;
 }
 
-/* 矢印のホバー時 */
-.arrow:hover {
-    background-color: rgba(0, 0, 0, 0.955);
+
+.banners {
+    margin: 10px 18px;
 }
 
-    /* 🔵 ページネーションのスタイル */
-    .pagination {
-        position: fixed;
-        top: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 5px;
-        border-radius: 0px;
-        z-index: 1100;
-        display: none;
-    }
-    .pagination a {
-        display: inline-block;
-        padding: 5px 10px;
-        margin: 10 10px;
-        text-decoration: none;
-        background-color: #f0f0f0;
-        color: #333;
-        border-radius: 2px;
-    }
-    .pagination a.active {
-        background-color: #000000;
-        color: #e97e00;
-        pointer-events: none;
-    }
-    .hidden {
-        display: none !important;
-    }
-    /* 🔍 オーバーレイのスタイル */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
-    .overlay img {
-        max-width: 90%;
-        max-height: 90%;
-        border-radius: 10px;
-    }
-    .arrow {
-        position: absolute;
-        top: 75%;
-        transform: translateY(-50%);
-        font-size: 20px;
-        color: rgb(137, 137, 137);
-        cursor: pointer;
-        user-select: none;
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0.7);
-        border-radius: 5px;
-    }
-    .left-arrow {
-        left: 30px;
-    }
-    .right-arrow {
-        right: 30px;
-    }
-    .hidden-arrow {
-        display: none !important;
-    }
-    
+/* 右側全体 */
+.main {
+    position: relative;
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* うねうねデザイン */
+.frame {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+.border img,
+.border2 img {
+    display: block;
+}
+
+/* TOPページ */
+.top-content {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: translateX(20px);
+}
+
+/* 文字 */
+.top-text1 {
+    color: #cccccc;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.top-text2 {
+    color: #cccccc;
+    font-size: 16px;
+}
+
+.top-text3 {
+    color: #808080;
+    font-size: 16px;
+    margin-top: 80px;
+}
+
+* {
+    box-sizing: border-box;
+}

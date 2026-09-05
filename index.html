@@ -1,163 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LHXPSNTXYE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LHXPSNTXYE');
-</script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZZAZZT ART ザットアート展示どころ</title>
     <link rel="stylesheet" href="style.css">
+<title>ザットイラストまとめ</title>
 </head>
 <body>
-    <!-- ヘッダー -->
-    <header class="header">
-        <img src="mat/bn_01.png" alt="タイトル画像" class="title-image">
-        <nav class="menu">
-            <a href="#" class="menu-link active" data-page="page1.html">Original</a>
-            <a href="#" class="menu-link" data-page="page2.html">Jujutsu<br>FanArt<br></a>
-            <a href="#" class="menu-link" data-page="page3.html">Twst<br>FanArt</a>
-            <a href="#" class="menu-link" data-page="contact.html">Contact<br></a>
-        </nav>
-    </header>
+    <!-- 左メニュー -->
+    <div class="menu">
+        <li><a href="index.html"><img src="mat/bn_01.png" class="banner" alt="サイトバナー"></a></li>
 
-    <!-- ページネーション -->
-    <div id="paginationJujutsu" class="pagination">
-        <a href="#" class="page-link active" data-page="page2.html">1</a>
-        <a href="#" class="page-link" data-page="page2b.html">2</a>
+        <center><a href="https://x.com/yokihihe2" target=”_blank”><img src="mat/btn_01.png" class="banners" alt="x"></a>
+        <a href="https://bsky.app/profile/yokihihe.bsky.social" target=”_blank”><img src="mat/btn_02.png" class="banners" alt="bluesky"></a>
+        <li><a href="index_jjk.html"><img src="mat/bn_02.png" class="banner" alt="jjk"></a></li>
+        <li><a href="index_twst.html"><img src="mat/bn_03.png" class="banner" alt="twst"></a></li>
+        <li><a href="index_sw.html"><img src="mat/bn_04.png" class="banner" alt="sw"></a></li>
+        <li><a href="https://skeb.jp/@zztzza" target="_blank"><img src="mat/bn_06.png" class="banner" alt="skeb"></a></li>
+        <li><a href="https://wavebox.me/wave/918hc07m2ox03s8z/" target="_blank"><img src="mat/bn_07.png" class="banner" alt="message"></a></li><center>　<br>zatillust■gmail.com<br>(■→@に変換)</p>
     </div>
-    <div id="paginationTwst" class="pagination">
-        <a href="#" class="page-link active" data-page="page3.html">1</a>
-        <a href="#" class="page-link" data-page="page3b.html">2</a>
-        <a href="#" class="page-link" data-page="page3c.html">3</a>
-        <a href="#" class="page-link" data-page="page3d.html">4</a>
-        <a href="#" class="page-link" data-page="page3e.html">5</a>
+    <!-- 右TOP -->
+    <div class="main">
+
+        <!-- 中央うねうねデザイン -->
+        <div class="frame">
+            <div class="border">
+                <img src="mat/bg_flame.png" alt="border">
+            </div>
+
+            <div class="border2">
+                <img src="mat/bg_flame2.png" alt="border">
+            </div>
+        </div>
+
+
+        <!-- トップページ -->
+        <div class="top-content">
+            <img src="mat/img_top.png" alt="TOP画" width="480" height="296">
+
+            <div class="top-text1">🚀 あなたは 人目の来訪者です 🛸</div>
+            <div class="top-text2">ザットのイラストをまとめています。<br></div>
+            <div class="top-text2">知らないジャンルの絵もぜひお楽しみください!!!!</div>
+
+            <div class="top-text3">更新履歴　　2026/9/5　ホームページ作成<p>
+                表示されない画像や飛ばないボタンがありましたら<br>
+                ←のメッセージまでお送りください。
+            </div>
+        </div>
+
     </div>
 
-    <!-- ボディ部分 -->
-    <div class="body-container">
-    </div>
-
-    <!-- オーバーレイ -->
-    <div id="overlay" class="overlay">
-        <span id="prevArrow" class="arrow left-arrow">&#9664;</span>
-        <img id="overlayImage" src="" alt="拡大画像">
-        <span id="nextArrow" class="arrow right-arrow">&#9654;</span>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            loadPage("page1.html");
-            setupMenuClickEvents();
-            setupPaginationClickEvents();
-        });
-
-        function loadPage(page) {
-            const bodyContainer = document.querySelector(".body-container");
-
-            fetch(page)
-                .then(response => response.text())
-                .then(data => {
-                    bodyContainer.innerHTML = data;
-                    setTimeout(() => {
-                        setupThumbnailClickEvents(); 
-                        updatePaginationDisplay(page);
-                        updatePagination(page);
-                    }, 100);
-                })
-                .catch(error => console.error("エラー:", error));
-        }
-
-        function setupMenuClickEvents() {
-            document.querySelectorAll(".menu-link").forEach(link => {
-                link.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    loadPage(this.getAttribute("data-page"));
-                    updateActiveMenu(this);
-                });
-            });
-        }
-
-        function setupPaginationClickEvents() {
-            document.querySelectorAll(".pagination a").forEach(link => {
-                link.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    loadPage(this.getAttribute("data-page"));
-                    updatePagination(this);
-                });
-            });
-        }
-
-        function setupThumbnailClickEvents() {
-            const thumbnails = document.querySelectorAll(".thumbnail img");
-            const overlay = document.getElementById("overlay");
-            const overlayImage = document.getElementById("overlayImage");
-            const prevArrow = document.getElementById("prevArrow");
-            const nextArrow = document.getElementById("nextArrow");
-
-            let currentIndex = 0;
-            let imageList = Array.from(thumbnails);
-
-            thumbnails.forEach((thumbnail, index) => {
-                thumbnail.addEventListener("click", function () {
-                    currentIndex = index;
-                    showImage();
-                });
-            });
-
-            prevArrow.onclick = function () {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    showImage();
-                }
-            };
-
-            nextArrow.onclick = function () {
-                if (currentIndex < imageList.length - 1) {
-                    currentIndex++;
-                    showImage();
-                }
-            };
-
-            overlay.addEventListener("click", function (event) {
-                if (!event.target.classList.contains("arrow")) {
-                    overlay.style.display = "none";
-                    overlayImage.src = "";
-                }
-            });
-
-            function showImage() {
-                overlayImage.src = imageList[currentIndex].getAttribute("data-large");
-                overlay.style.display = "flex";
-                prevArrow.classList.toggle("hidden-arrow", currentIndex === 0);
-                nextArrow.classList.toggle("hidden-arrow", currentIndex === imageList.length - 1);
-            }
-        }
-
-        function updatePaginationDisplay(page) {
-            document.getElementById("paginationJujutsu").style.display = page.startsWith("page2") ? "block" : "none";
-            document.getElementById("paginationTwst").style.display = page.startsWith("page3") ? "block" : "none";
-        }
-
-        function updatePagination(page) {
-            document.querySelectorAll(".pagination a").forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("data-page") === page) {
-                    link.classList.add("active");
-                }
-            });
-        }
-
-        function updateActiveMenu(activeLink) {
-            document.querySelectorAll(".menu-link").forEach(link => link.classList.remove("active"));
-            activeLink.classList.add("active");
-        }
-    </script>
 </body>
 </html>

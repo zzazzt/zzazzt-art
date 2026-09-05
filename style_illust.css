@@ -1,0 +1,137 @@
+body {
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+html, body {
+    overflow: hidden;
+}
+/* サイドメニュー */
+.menu {
+    background-color: #4d4d4d;
+    width: 260px;
+    flex-shrink: 0;
+        height: 810px;
+}
+
+.menu li {
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.illust {
+    color: #858585;
+    height: 600px;
+    width: 220px;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    overflow: auto
+}
+
+.illust-img {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* jjkバナー */
+.jjk {
+    margin: 10px 10px;
+    display: block;
+    margin-bottom: -20px;
+}
+
+/* 戻る */
+.modoru {
+    margin: 10px 10px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+
+/* 右側全体 */
+.main {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 10px;
+}
+
+
+/* うねうねデザイン */
+.frame {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+.border img,
+.border2 img {
+    display: block;
+}
+
+/* TOPページ */
+.top-content {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: translateX(20px);
+}
+
+/* 文字 */
+.top-text1 {
+    color: #858585;
+    font-size: 18px;
+    text-align: left;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+.top-text2 {
+    color: #4d4d4d;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 40px;
+    margin-bottom: -4px;
+    margin-top: 14px;
+    letter-spacing: 2px;
+}
+
+/* 絵 */
+#mainImage {
+    max-height: 700px;
+    max-width: 600px;
+    width: auto;
+    height: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
