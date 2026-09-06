@@ -45,18 +45,15 @@ li {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 /* うねうねデザイン */
 .frame {
     position: absolute;
     inset: 0;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     pointer-events: none;
 }
 
@@ -71,8 +68,8 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     transform: translateX(20px);
+    margin-top: 40px;
 }
 
 /* 文字 */
@@ -85,7 +82,8 @@ li {
 
 .top-text2 {
     color: #cccccc;
-    font-size: 16px;
+    font-size: 18px;
+        text-align: left;
 }
 
 .top-text3 {
