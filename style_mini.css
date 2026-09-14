@@ -76,31 +76,23 @@ height: 20px;
     width: 308px;
     height: 112px;
 }
-
-.banners {
-justify-content: start;
-gap: 86px;
-display: flex;
-margin-left: 10px;
-margin-right: 10px;
-}
-
 /* 文字 */
 .top-text1 {
     color: #cccccc;
     font-size: 24px;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .top-text2 {
     color: #cccccc;
     font-size: 18px;
+    margin-top:  40px;
     text-align: left;
 }
 
-.top-textmail {
-    margin-top: 40px;
-    color: #cccccc;
-    font-size: 18px;
+.hooter{
+    height: 80px;
+    display: flex;
 }
