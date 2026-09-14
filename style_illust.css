@@ -24,7 +24,7 @@ html, body {
 
 .illust {
     background-color: #4d4d4d;
-    height: 90vw;
+    height: 70vh;
     width: 220px;
     display:flex;
     flex-wrap: wrap;
