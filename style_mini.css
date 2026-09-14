@@ -95,14 +95,8 @@ margin-right: 10px;
 
 .top-text2 {
     color: #cccccc;
-    font-size: 24px;
-    text-align: left;
-}
-
-.top-text3 {
-    color: #808080;
     font-size: 18px;
-    text-align: bottom;
+    text-align: left;
 }
 
 .top-textmail {
