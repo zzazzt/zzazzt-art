@@ -2,6 +2,7 @@ body {
     background-color: #000000;
     margin: 0;
     padding: 0;
+
     display: flex;
 }
 html, body {
@@ -11,8 +12,8 @@ html, body {
 .menu {
     background-color: #4d4d4d;
     width: 260px;
+    height: 100vh;
     flex-shrink: 0;
-        height: 810px;
 }
 
 .menu li {
@@ -23,20 +24,20 @@ html, body {
 
 .illust {
     color: #858585;
-    height: 600px;
+    height: 80vh;
     width: 220px;
     display:flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: auto auto;
     overflow: auto
 }
 
 .illust-img {
-    height: 60px;
+    height: 90px;
     width: auto;
     display: block;
     margin-bottom: 10px;
+    margin: 5px;
 }
 
 /* jjkバナー */
@@ -64,7 +65,7 @@ html, body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 16px;
 }
 ::-webkit-scrollbar-track {
   background: black;
@@ -80,11 +81,9 @@ html, body {
 .frame {
     position: absolute;
     inset: 0;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     pointer-events: none;
 }
 
