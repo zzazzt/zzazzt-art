@@ -23,7 +23,7 @@ html, body {
 }
 
 .illust {
-    color: #858585;
+    background-color: #4d4d4d;
     height: 80vh;
     width: 220px;
     display:flex;
@@ -64,17 +64,6 @@ html, body {
     align-items: center;
 }
 
-::-webkit-scrollbar {
-  width: 16px;
-}
-::-webkit-scrollbar-track {
-  background: black;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: #333333;
-  border-radius: 10px;
-}
 
 
 /* うねうねデザイン */
