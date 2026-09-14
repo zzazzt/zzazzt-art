@@ -49,6 +49,7 @@ height: 20px;
     height: 314px;
     align-items: auto;
     align-items: end;
+    margin-top: -1px;
     padding: 0;
     bottom: 0;
 }
@@ -100,14 +101,15 @@ margin-right: 10px;
 
 .top-text2 {
     color: #cccccc;
-    font-size: 18px;
+    font-size: 20px;
     text-align: left;
 }
 
 .top-text3 {
     color: #808080;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 80px;
+    text-align: bottom;
 }
 
 .top-textmail {
