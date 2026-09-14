@@ -24,7 +24,7 @@ html, body {
 
 .illust {
     background-color: #4d4d4d;
-    height: 70vh;
+    height: 800px;
     width: 220px;
     display:flex;
     flex-wrap: wrap;
@@ -33,7 +33,7 @@ html, body {
 }
 
 .illust-img {
-    height: 90px;
+    height: 92px;
     width: auto;
     display: block;
     margin-bottom: 10px;
