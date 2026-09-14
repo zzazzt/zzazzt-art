@@ -24,7 +24,7 @@ html, body {
 
 .illust {
     background-color: #4d4d4d;
-    height: 800px;
+    height: 90vw;
     width: 220px;
     display:flex;
     flex-wrap: wrap;
@@ -112,4 +112,10 @@ html, body {
 ::-webkit-scrollbar-thumb {
   background: #333333;
   border-radius: 10px;
+}
+
+/* 標準仕様（Firefox・Chrome121以降） */
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
 }
