@@ -81,26 +81,25 @@ html, body {
     display: block;
 }
 
-/* TOPページ */
 .top-content {
-    background-color: #000000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-right: 30px;
-    margin-left: 20px;
-    transform: translateX(10px);
-}
-
-
-/* 絵 */
-#mainImage {
     display: flex;
     width: 90%;
     height: 90%;
+    justify-content: center;
+    align-items: center;
 }
 
+#mainImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
