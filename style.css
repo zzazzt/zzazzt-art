@@ -82,21 +82,21 @@ li {
 
 /* 文字 */
 .text1 {
-    color: #6e6e6e;
+    color: #cccccc;
     font-size: 26px;
     margin-top: 50px;
     margin-bottom: 20px;
 }
 
 .text2 {
-    color: #6e6e6e;
+    color: #cccccc;
     font-size: 20px;
     text-align: center;
 }
 
 .text3 {
     margin-top: 40px;
-    color: #6e6e6e;
+    color: #cccccc;
     font-size: 20px;
     text-align: center;
 }
